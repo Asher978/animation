@@ -26,21 +26,23 @@ body {
 	height: 300px;
 	width: 250px;
 	position: absolute;
+	border-radius: 80px;
+	border: 10pt solid rgba(0, 0, 0, 0.4);
 }
 .ninA{
-	margin-left:1000px;
+	margin-left:2000px;
 	margin-top: 100px;
 }
 .ninB{
-	margin-left:700px;
+	margin-left:1350px;
 	margin-top: 100px;
 }
 .ninC{
-	margin-left:400px;
+	margin-left:750px;
 	margin-top: 100px;
 }
 .ninD{
-	margin-left:100px;
+	margin-left:200px;
 	margin-top: 100px;
 }
 .nincontainer{
@@ -54,11 +56,33 @@ h2{
 	z-index: 999;
 }
 .mlogo{
-	margin-left: 80px;
-	margin-top: 10px;
+	/*display: none;*/
+	margin-left: 600px;
+	margin-top: -400px;
 	width:1300px;
 	opacity: .5;
+	border: 10pt solid rgba(0, 0, 0, 0.9);
 }
+.mlogo:hover {
+	
+	width:1320px;
+	opacity:1;
+	transition: 1s;
+	background-attachment: url('')
+	
+}
+button{
+	color: blue;
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 2%;
+	text-align: center;
+	font-size: 20pt
+}
+h2{
+	margin-left: 50px;
+}
+
+
 
 
 
@@ -74,10 +98,10 @@ h2{
 			<img id="nin4" class="ninja ninB" src="TurtlesD.gif">	
 			<img id="nin1" class="ninja ninC" src="TurtlesA.gif">
 			<img id="nin3" class="ninja ninD" src="TurtlesC.gif">
-			<img class="ninja mlogo" src="mainlogo.jpg">
+			<div><a href="https://www.Google.com"><img id="backlogo" class="ninja mlogo slide" src="mainlogo.jpg"></a></div>
 		</div>
 
-		<h2><button onclick="Move()">Do Not Click Me!</button></h2>
+		<h2><button onclick="Move()">Press Me!</button></h2>
 	</div>
 
 
@@ -88,12 +112,13 @@ h2{
 	var elem2 = document.getElementById("nin2");
 	var elem3 = document.getElementById("nin3");
 	var elem4 = document.getElementById("nin4");
+	var elem5 = document.getElementById("backlogo");
 
 function Move(){
 	var posY = 0;
 	var id = setInterval(frame, 1);
 	function frame(){
-		if(posY == 500) {
+		if(posY == 950) {
 			clearInterval(id);
 			func_elem2(posY)
 		} else {
@@ -108,7 +133,7 @@ function func_elem2(posY){
 	var id = setInterval(frame, 1);
 	console.log("hi");
 	function frame(){
-		if(posY == 500) {
+		if(posY == 950) {
 			clearInterval(id);
 			func_elem3(posY);
 		} else {
@@ -123,7 +148,7 @@ function func_elem3(posY){
 	var id = setInterval(frame, 1);
 	console.log("hi");
 	function frame(){
-		if(posY == 500) {
+		if(posY == 950) {
 			clearInterval(id);
 			func_elem4(posY);
 		} else {
@@ -137,12 +162,26 @@ function func_elem4(posY){
 	var id = setInterval(frame, 1);
 	console.log("hi");
 	function frame(){
-		if(posY == 500) {
+		if(posY == 950) {
+			clearInterval(id);
+			func_elem5(posY);
+		} else {
+			posY++;
+			elem3.style.top = posY + "px";
+		}
+	}
+}
+function func_elem5(posY){
+	posY = -50;
+	var id = setInterval(frame, 1);
+	console.log("hi");
+	function frame(){
+		if(posY == 1000) {
 			clearInterval(id);
 			// func_elem3(posY);
 		} else {
 			posY++;
-			elem3.style.top = posY + "px";
+			elem5.style.top = posY + "px";
 		}
 	}
 }
